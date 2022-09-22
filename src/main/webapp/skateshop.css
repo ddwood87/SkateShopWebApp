@@ -1,0 +1,38 @@
+@charset "ISO-8859-1";
+
+body{
+	max-width: 600px;
+}
+h1{
+	border-radius: 60px 60px 0 0;
+	border: 3px solid #ccaaaa;
+	background-color: #eebbbb;
+	font-size: 30px;
+	margin: 15px 15px 0 15px;
+	padding: 15px 15px 5px 15px;
+	text-align: center;
+}
+nav{
+	display: flex;
+	justify-content: space-around;
+	margin: 0 15px 15px 15px;
+	padding: 10px;
+	background-color: #aaaacc;
+	border-radius: 0 0 60px 60px;
+	
+}
+nav a {
+	margin: 0;
+	padding: 10px;
+	border: 1px solid #8888aa;
+	border-radius: 20px;	
+	text-decoration: none;
+	background-color: #ccccff;
+}
+nav a:hover{
+	text-decoration: underline;
+}
+table, td{
+	border: 1px solid black;
+	padding: 3px;
+}
