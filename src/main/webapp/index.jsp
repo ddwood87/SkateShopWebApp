@@ -16,11 +16,14 @@
 <a href="skatelist">List Skateboards</a>
 <a href="editskate">Add a Skateboard</a>
 </nav>
-<p>Search for a skateboard:</p>
 <form action="skatelist" method="post">
-	<input type="text" name="searchdeck" placeholder="Deck Brand"/>
-	<input type="text" name="searchwheel" placeholder="Wheel Brand"/>
-	<input type="text" name="searchtruck" placeholder="Truck Brand"/>
+	<p class="form-title">Search for a skateboard:</p>
+	<div><label for="searchdeck">Deck</label>
+	<input type="text" name="searchdeck" placeholder="Deck Brand"/></div>
+	<div><label for="searchwheel">Wheel</label>
+	<input type="text" name="searchwheel" placeholder="Wheel Brand"/></div>
+	<div><label for="searchtruck">Truck</label>
+	<input type="text" name="searchtruck" placeholder="Truck Brand"/></div>
 	<input type="submit" value="Search"/>
 </form>
 </body>

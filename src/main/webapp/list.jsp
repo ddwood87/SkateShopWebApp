@@ -22,6 +22,7 @@
 		<th>Deck</th>
 		<th>Wheels</th>
 		<th>Trucks</th>
+		<th>Detail</th>
 		<th>Edit</th>
 		<th>Delete</th>
 	</tr>
@@ -30,10 +31,12 @@
 	<td><c:out value="${var.getDeckBrand()}"/></td>
 	<td><c:out value="${var.getWheelBrand()}"/></td>
 	<td><c:out value="${var.getTruckBrand()}"/></td>
+	<td><a href="detail?id=${var.getId()}">Detail</a>
 	<td><a href="editskate?id=${var.getId()}">Edit</a></td>
 	<td><a href="deleteskate?id=${var.getId()}">Delete</a></td>
 </tr>
 </c:forEach>
 </table>
+<c:if test="${skateboards.size() == 0}"><p>There are no matching skateboards.</p></c:if>
 </body>
 </html>

@@ -64,18 +64,19 @@ public class SkateHelper {
 
 	public Skateboard updateSkate(Skateboard updatedSkate) {
 		EntityManager em = emfactory.createEntityManager();
-		if(!skateExists(updatedSkate)) {
+		Skateboard result;
+		//if skate exists, delete updatedSkate, return existing
+		if(skateExists(updatedSkate)) {
+			result = getExisting(updatedSkate);
+			deleteSkate(updatedSkate);
+		} else {
 			em.getTransaction().begin();
 			em.merge(updatedSkate);
 			em.getTransaction().commit();
 			em.close();	
-			return updatedSkate;
-		} else {
-			//if update will create duplicate, delete the old skate
-			Skateboard existing = getExisting(updatedSkate);
-			deleteSkate(updatedSkate);
-			return existing;
+			result = updatedSkate;
 		}
+		return result;
 	}
 	
 	public List<Skateboard> listAllSkates() {

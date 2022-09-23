@@ -53,22 +53,29 @@ public class editSkate extends HttpServlet {
 		String deck = (String)request.getParameter("deck");
 		String wheel = (String)request.getParameter("wheel");
 		String truck = (String)request.getParameter("truck");
+		Skateboard result = new Skateboard(deck, wheel, truck);
+		
 		var reqId = request.getParameter("id");
 		if(reqId != null && !reqId.equals("")) {
-			int id = Integer.parseInt(request.getParameter("id"));
+			int id = Integer.parseInt(reqId);
 			Skateboard existingSkate = sh.getSkateById(id);
-			existingSkate.setDeckBrand(deck);
-			existingSkate.setWheelBrand(wheel);
-			existingSkate.setTruckBrand(truck);
-			sh.updateSkate(existingSkate);
+			if(!result.equals(existingSkate)) {
+				existingSkate.setDeckBrand(deck);
+				existingSkate.setWheelBrand(wheel);
+				existingSkate.setTruckBrand(truck);
+				result = sh.updateSkate(existingSkate);
+			} else {
+				result = existingSkate;
+			}
 		}
 		else {
 			Skateboard addSkate = new Skateboard(deck, wheel, truck);
 			sh.addSkate(addSkate);
+			result = addSkate;
 		}
 		
-		
-		response.sendRedirect("skatelist");
+		request.setAttribute("skate", result);
+		getServletContext().getRequestDispatcher("/detail.jsp").forward(request, response);
 	}
 
 }

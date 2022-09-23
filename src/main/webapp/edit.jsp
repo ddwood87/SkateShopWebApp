@@ -17,8 +17,8 @@
 <a href="skatelist">List Skateboards</a>
 <a href="editskate">Add a Skateboard</a>
 </nav>
-<p>${addOrEdit} a Skateboard: </p>
 <form action="editskate" method="post">
+	<p class="form-title">${addOrEdit} a Skateboard:</p>
 	<input type="hidden" name="id" value="${id}" />
 	<label for="deck">Deck</label>
 	<input type="text" name="deck" value="${deck}" placeholder="Deck Brand"/>

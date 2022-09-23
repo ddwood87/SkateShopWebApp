@@ -92,18 +92,18 @@ public class Skateboard {
 			return false;
 		}
 		Skateboard skate = (Skateboard)o;
-		if(this.deckBrand != null && skate.deckBrand != null) {
-			if(this.deckBrand == skate.deckBrand) {
+		if(this.deckBrand != null && skate.getDeckBrand() != null) {
+			if(this.deckBrand.equals(skate.getDeckBrand())) {
 				result = true;			
 			} else { return false; }
 		}
-		if(this.wheelBrand != null && skate.wheelBrand != null) {
-			if(this.wheelBrand == skate.wheelBrand) {
+		if(this.wheelBrand != null && skate.getWheelBrand() != null) {
+			if(this.wheelBrand.equals(skate.getWheelBrand())) {
 				result = true;			
 			} else { return false; }
 		}
-		if(this.truckBrand != null && skate.truckBrand != null) {
-			if(this.truckBrand == skate.truckBrand) {
+		if(this.truckBrand != null && skate.getTruckBrand() != null) {
+			if(this.truckBrand.equals(skate.getTruckBrand())) {
 				result = true;			
 			} else { return false; }
 		}

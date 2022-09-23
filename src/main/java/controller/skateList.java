@@ -34,6 +34,9 @@ public class skateList extends HttpServlet {
 		// TODO Auto-generated method stub
 		List<Skateboard> skates = sh.listAllSkates();
 		request.setAttribute("skateboards", skates);
+		boolean noSkates = false;
+		if(skates.size() == 0) { noSkates = true;}
+		request.setAttribute("noSkates", noSkates);
 		getServletContext().getRequestDispatcher("/list.jsp").forward(request,response);
 		
 	}
@@ -59,6 +62,9 @@ public class skateList extends HttpServlet {
 		} else {
 			List<Skateboard> skates = sh.searchByPartBrand(deck, wheel, truck);
 			request.setAttribute("skateboards", skates);
+			boolean noSkates = false;
+			if(skates.size() == 0) { noSkates = true;}
+			request.setAttribute("noSkates", noSkates);
 			getServletContext().getRequestDispatcher("/list.jsp").forward(request, response);
 		}
 	}
